@@ -14,7 +14,7 @@ import javax.persistence.Version;
 public class Login {
 	@Id
 	@GeneratedValue(generator="SeqLogin",strategy=GenerationType.SEQUENCE)
-	Integer id_login;
+	Integer id;
 	@Column(name="identifiant")
 	String login;
 	@Column(name="mot_de_passe")
@@ -39,11 +39,11 @@ public class Login {
 
 
 
-	public Integer getId_login() {
-		return id_login;
+	public Integer getId() {
+		return id;
 	}
-	public void setId_login(Integer id_login) {
-		this.id_login = id_login;
+	public void setId_login(Integer id) {
+		this.id = id;
 	}
 	public String getLogin() {
 		return login;
@@ -66,13 +66,19 @@ public class Login {
 	public int getVersion() {
 		return version;
 	}
+
+
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((id_login == null) ? 0 : id_login.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
+
+
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -82,11 +88,12 @@ public class Login {
 		if (getClass() != obj.getClass())
 			return false;
 		Login other = (Login) obj;
-		if (id_login == null) {
-			if (other.id_login != null)
+		if (id == null) {
+			if (other.id != null)
 				return false;
-		} else if (!id_login.equals(other.id_login))
+		} else if (!id.equals(other.id))
 			return false;
 		return true;
-	}	
+	}
+	
 }
